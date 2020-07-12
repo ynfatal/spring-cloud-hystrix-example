@@ -1,0 +1,11 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: hystrix-provider-example
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
