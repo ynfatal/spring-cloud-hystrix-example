@@ -38,9 +38,11 @@ public class HelloServiceImpl implements IHelloService {
      * @return
      */
     @HystrixCommand(fallbackMethod = "helloFallback",
+        // commandProperties 默认配置可以参考类：com.netflix.hystrix.HystrixCommandProperties
         commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500")
         },
+        // threadPoolProperties 默认配置可以参考类：com.netflix.hystrix.HystrixThreadPoolProperties
         threadPoolProperties = {
             @HystrixProperty(name = "coreSize", value = "30"),
             @HystrixProperty(name = "maxQueueSize", value = "101"),
