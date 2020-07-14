@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: hystrix-consumer-example
+  profiles:
+    active: global_configuration
+
+---
+spring:
+  profiles: global_configuration
+
+---
+spring:
+  profiles: default

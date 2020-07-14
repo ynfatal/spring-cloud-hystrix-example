@@ -1,10 +1,7 @@
 package com.example.controller;
 
 import com.example.service.IHelloService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.circuitbreaker.Customizer;
-import org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,12 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ConsumerController {
+
     @Autowired
     private IHelloService helloService;
-    @Autowired(required = false)
-    private HystrixCircuitBreakerFactory hystrixCircuitBreakerFactory;
-    @Autowired(required = false)
-    private Customizer customizer;
 
     @GetMapping("/consumer")
     public String consumer() {

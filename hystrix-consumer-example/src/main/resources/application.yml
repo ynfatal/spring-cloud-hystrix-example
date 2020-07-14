@@ -1,7 +1,3 @@
-spring:
-  application:
-    name: hystrix-consumer-example
-
 eureka:
   instance:
     prefer-ip-address: true

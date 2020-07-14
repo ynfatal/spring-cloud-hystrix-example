@@ -7,6 +7,7 @@ import org.springframework.cloud.client.circuitbreaker.Customizer;
 import org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 /**
  * Hystrix 全局配置
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2020/7/14 8:47
  */
 @Configuration(proxyBeanMethods = false)
+@Profile(value = "global_configuration")
 public class HystrixConfiguration {
 
     /**
