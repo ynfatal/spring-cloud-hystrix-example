@@ -21,13 +21,13 @@ public class CustomConfigurationHelloServiceImpl implements IHelloService {
 
     private RestTemplate restTemplate;
 
-    @Override
     /**
      * Spring Cloud 会将带有 @HystrixCommand 注解的 Spring bean 包装在一个连接到 Hystrix 断路器的代理中.
      * 要配置 @HystrixCommand，可以将 commandProperties 属性或 threadPoolProperties 属性与 @HystrixProperty 注解列表一起使用。请参阅下边链接了解更多详情：
      * https://github.com/Netflix/Hystrix/tree/master/hystrix-contrib/hystrix-javanica#configuration
      * @return
      */
+    @Override
     @HystrixCommand(fallbackMethod = "helloFallback",
         // commandProperties 默认配置可以参考类：com.netflix.hystrix.HystrixCommandProperties
         commandProperties = {
