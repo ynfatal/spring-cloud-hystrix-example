@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Profile;
  */
 @Configuration(proxyBeanMethods = false)
 @Profile(value = "global_configuration")
-public class HystrixConfiguration {
+public class HystrixGlobalConfiguration {
 
     /**
      * @apiNote 为所有断路器提供默认配置，该 bean 将传递给 HystrixCircuitBreakerFactory。具体可以参考自动配置类源码：

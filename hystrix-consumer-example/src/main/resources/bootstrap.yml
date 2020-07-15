@@ -2,11 +2,15 @@ spring:
   application:
     name: hystrix-consumer-example
   profiles:
-    active: global_configuration
+    active: specific_configuration
 
 ---
 spring:
   profiles: global_configuration
+
+---
+spring:
+  profiles: specific_configuration
 
 ---
 spring:
