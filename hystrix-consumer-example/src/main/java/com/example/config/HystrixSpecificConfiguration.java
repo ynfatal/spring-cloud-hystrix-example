@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 /**
+ * Hystrix 局部配置
  * @author Fatal
  * @date 2020/7/15 8:45
  */
@@ -15,6 +16,11 @@ import org.springframework.context.annotation.Profile;
 @Profile(value = "specific_configuration")
 public class HystrixSpecificConfiguration {
 
+    /**
+     * @apiNote 与提供全局默认配置类似，您可以创建一个自定义 bean，它被传递给 HystrixCircuitBreakerFactory。
+     * 单独为 id 为 foo 和 bar 的断路器提供配置数据。
+     * @return
+     */
     @Bean
     public Customizer<HystrixCircuitBreakerFactory> customizer() {
         return factory -> factory.configure(builder -> builder.commandProperties(
