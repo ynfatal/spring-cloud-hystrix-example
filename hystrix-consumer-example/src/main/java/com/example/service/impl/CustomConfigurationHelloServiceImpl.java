@@ -4,7 +4,6 @@ import com.example.service.IHelloService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,7 +15,6 @@ import org.springframework.web.client.RestTemplate;
  * @date 2020/7/13 0013 22:14
  */
 @Service
-@Slf4j
 @AllArgsConstructor
 public class CustomConfigurationHelloServiceImpl implements IHelloService {
 
