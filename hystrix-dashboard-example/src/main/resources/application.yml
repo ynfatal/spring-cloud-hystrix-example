@@ -4,11 +4,11 @@ eureka:
   instance:
     prefer-ip-address: true
 #暴露全部的监控信息
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  server:
-    servlet:
-      context-path: /
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  server:
+#    servlet:
+#      context-path: /
