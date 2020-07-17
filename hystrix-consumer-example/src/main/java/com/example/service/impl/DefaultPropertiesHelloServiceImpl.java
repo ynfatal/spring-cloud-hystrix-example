@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * 测试自定义局部配置 -- 类级别的细粒度
+ * 优先级测试结果：方法级别优先级高于类级别
  * @author Fatal
  * @date 2020/7/17 9:21
  */
