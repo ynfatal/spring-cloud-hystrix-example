@@ -2,7 +2,7 @@ spring:
   application:
     name: hystrix-consumer-example
   profiles:
-    active: specific_configuration
+    active: default
 
 ---
 spring:

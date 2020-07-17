@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 /**
+ * 测试自定义局部配 -- 方法级别的细粒度
  * 官方文档：https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.2.2.RELEASE/reference/html/#netflix-hystrix-starter
  * hystrix 相关属性可以参考类：com.netflix.hystrix.contrib.javanica.conf.HystrixPropertiesManager
  * @implNote 使用 @HystrixCommand 为单个方法添加自定义配置
