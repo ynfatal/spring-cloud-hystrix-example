@@ -1,5 +1,6 @@
 package com.example.service.impl;
 
+import com.example.service.IHelloService;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.AllArgsConstructor;
@@ -16,10 +17,11 @@ import org.springframework.web.client.RestTemplate;
 @Service
 @AllArgsConstructor
 @DefaultProperties(defaultFallback = "defaultFallback")
-public class DefaultPropertiesHelloServiceImpl {
+public class DefaultPropertiesHelloServiceImpl implements IHelloService {
 
     private RestTemplate restTemplate;
 
+    @Override
     @HystrixCommand // 打开后测试 @DefaultProperties 定义的默认属性
 //    @HystrixCommand(fallbackMethod = "helloFallback")   // 打开后测试 @DefaultProperties 和 @HystrixCommand 的优先级
     public String hello() {
