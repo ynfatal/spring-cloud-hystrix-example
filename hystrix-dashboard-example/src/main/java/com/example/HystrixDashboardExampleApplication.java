@@ -6,8 +6,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 /**
- * hystrix dashboard Unable to connect to Command Metric Stream 解决办法，参考文章：
- * https://blog.csdn.net/fxbin123/article/details/82322476?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+ * 问题：Unable to connect to Command Metric Stream.
+ * 你监控的应用没有引入 actuator 功能。可以参考官网：https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.2.2.RELEASE/reference/html/#hystrix-metrics-stream
  */
 @SpringBootApplication
 @EnableHystrixDashboard

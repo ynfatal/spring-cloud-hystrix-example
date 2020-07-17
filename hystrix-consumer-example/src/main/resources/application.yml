@@ -2,8 +2,11 @@ eureka:
   instance:
     prefer-ip-address: true
 
+# 参考官网：https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.2.2.RELEASE/reference/html/#hystrix-metrics-stream
+# 通过引入依赖 ` spring-boot-starter-actuator` 和配置 `management.endpoints.web.exposure.include: hystrix.stream`
+# 来开启 Hystrix metrics stream。这样做可以暴露 `/actuator/hystrix.stream` 作为管理端点。
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: hystrix.stream
