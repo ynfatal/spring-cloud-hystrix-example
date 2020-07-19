@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 /**
- * Hystrix 全局配置
+ * HystrixCircuitBreaker 全局配置
  * @author Fatal
  * @date 2020/7/14 8:47
  */

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 /**
- * Hystrix 局部配置
+ * HystrixCircuitBreaker 局部配置
  * @author Fatal
  * @date 2020/7/15 8:45
  */
