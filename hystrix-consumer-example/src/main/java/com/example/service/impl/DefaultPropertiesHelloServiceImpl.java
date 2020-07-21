@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Fatal
  * @date 2020/7/17 9:21
  */
-@Primary
+//@Primary
 @Service
 @AllArgsConstructor
 @DefaultProperties(defaultFallback = "defaultFallback")
