@@ -15,6 +15,15 @@ import org.springframework.web.client.RestTemplate;
  * @implNote 使用 @HystrixCommand 为单个方法添加自定义配置
  * 可以在 com.netflix.hystrix.AbstractCommand#AbstractCommand(com.netflix.hystrix.HystrixCommandGroupKey, com.netflix.hystrix.HystrixCommandKey, com.netflix.hystrix.HystrixThreadPoolKey, com.netflix.hystrix.HystrixCircuitBreaker, com.netflix.hystrix.HystrixThreadPool, com.netflix.hystrix.HystrixCommandProperties.Setter, com.netflix.hystrix.HystrixThreadPoolProperties.Setter, com.netflix.hystrix.HystrixCommandMetrics, com.netflix.hystrix.AbstractCommand.TryableSemaphore, com.netflix.hystrix.AbstractCommand.TryableSemaphore, com.netflix.hystrix.strategy.properties.HystrixPropertiesStrategy, com.netflix.hystrix.strategy.executionhook.HystrixCommandExecutionHook)
  * 这里 debug，判断配置是否生效，以及指定的 HystrixCommand 初始化的配置。
+ * javanica 注解 @HystrixCommand 初始化 HystrixCommand 的路线：（@HystrixCollapser 类似）
+ * - 使用切面，将注解 @HystrixCommand 作为切点，在通知中使用 CommandExecutor 对 HystrixInvokable（Command 标记接口） 进行初始化并调用
+ * - com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect#methodsAnnotatedWithHystrixCommand(org.aspectj.lang.ProceedingJoinPoint) // line94
+ * - com.netflix.hystrix.contrib.javanica.command.HystrixCommandFactory#create(com.netflix.hystrix.contrib.javanica.command.MetaHolder)  // line43 -> GenericCommand 在这里被创建
+ * - com.netflix.hystrix.contrib.javanica.command.GenericCommand#GenericCommand(com.netflix.hystrix.contrib.javanica.command.HystrixCommandBuilder)
+ * - com.netflix.hystrix.contrib.javanica.command.AbstractHystrixCommand#AbstractHystrixCommand(com.netflix.hystrix.contrib.javanica.command.HystrixCommandBuilder)
+ * - com.netflix.hystrix.HystrixCommand#HystrixCommand(com.netflix.hystrix.HystrixCommand.Setter)
+ * - com.netflix.hystrix.HystrixCommand#HystrixCommand(com.netflix.hystrix.HystrixCommandGroupKey, com.netflix.hystrix.HystrixCommandKey, com.netflix.hystrix.HystrixThreadPoolKey, com.netflix.hystrix.HystrixCircuitBreaker, com.netflix.hystrix.HystrixThreadPool, com.netflix.hystrix.HystrixCommandProperties.Setter, com.netflix.hystrix.HystrixThreadPoolProperties.Setter, com.netflix.hystrix.HystrixCommandMetrics, com.netflix.hystrix.AbstractCommand.TryableSemaphore, com.netflix.hystrix.AbstractCommand.TryableSemaphore, com.netflix.hystrix.strategy.properties.HystrixPropertiesStrategy, com.netflix.hystrix.strategy.executionhook.HystrixCommandExecutionHook) // use 'null' to specify use the default
+ * - com.netflix.hystrix.AbstractCommand#AbstractCommand(com.netflix.hystrix.HystrixCommandGroupKey, com.netflix.hystrix.HystrixCommandKey, com.netflix.hystrix.HystrixThreadPoolKey, com.netflix.hystrix.HystrixCircuitBreaker, com.netflix.hystrix.HystrixThreadPool, com.netflix.hystrix.HystrixCommandProperties.Setter, com.netflix.hystrix.HystrixThreadPoolProperties.Setter, com.netflix.hystrix.HystrixCommandMetrics, com.netflix.hystrix.AbstractCommand.TryableSemaphore, com.netflix.hystrix.AbstractCommand.TryableSemaphore, com.netflix.hystrix.strategy.properties.HystrixPropertiesStrategy, com.netflix.hystrix.strategy.executionhook.HystrixCommandExecutionHook)
  * @author Fatal
  * @date 2020/7/13 0013 22:14
  */
