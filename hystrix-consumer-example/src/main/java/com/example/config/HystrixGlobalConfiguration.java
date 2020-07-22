@@ -26,8 +26,7 @@ public class HystrixGlobalConfiguration {
      */
     @Bean
     public Customizer<HystrixCircuitBreakerFactory> defaultConfig() {
-        return factory -> factory.configureDefault(
-            id -> HystrixCommand.Setter
+        return factory -> factory.configureDefault(id -> HystrixCommand.Setter
             .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
             .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
                 .withExecutionTimeoutInMilliseconds(4000)));
