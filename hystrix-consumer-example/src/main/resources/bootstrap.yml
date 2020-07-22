@@ -17,7 +17,7 @@ spring:
   profiles: default
 
 # Hystrix 配置
-# 它这里没有使用配置文件值注入，而是采用另一种方式来取值。（所以下面的配置会报黄）
+# 它这里没有使用配置文件值注入，而是采用另一种方式（HystrixDynamicProperty）来取值，所以下面的配置会报黄。
 # 具体源码可以参考：com.netflix.hystrix.HystrixCommandProperties.getProperty(java.lang.String, com.netflix.hystrix.HystrixCommandKey, java.lang.String, java.lang.Integer, java.lang.Integer)
 hystrix:
   command:
