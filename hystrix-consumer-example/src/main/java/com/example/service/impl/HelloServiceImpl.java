@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
  * @date 2020/7/13 0013 22:14
  */
 @Service
-//@Primary
+@Primary
 @Slf4j
 @AllArgsConstructor
 public class HelloServiceImpl implements IHelloService {
@@ -24,6 +24,11 @@ public class HelloServiceImpl implements IHelloService {
     @Override
     @HystrixCommand(fallbackMethod = "helloFallback")
     public String hello() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return restTemplate.getForObject("http://HYSTRIX-PROVIDER-EXAMPLE/hello", String.class);
     }
 

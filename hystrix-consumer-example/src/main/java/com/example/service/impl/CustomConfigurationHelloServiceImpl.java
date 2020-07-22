@@ -27,7 +27,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Fatal
  * @date 2020/7/13 0013 22:14
  */
-@Primary
+//@Primary
 @Service
 @AllArgsConstructor
 public class CustomConfigurationHelloServiceImpl implements IHelloService {
@@ -46,7 +46,7 @@ public class CustomConfigurationHelloServiceImpl implements IHelloService {
         commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500")
         },
-        // threadPoolProperties 默认配置可以参考类：com.netflix.hystrix.HystrixThreadPoolProperties
+        // threadPoolProperties 默认配置可以参考类：com.netflix.hystrix.HystrixThreadPoolProperties，com.netflix.hystrix.HystrixCollapserProperties
         threadPoolProperties = {
             @HystrixProperty(name = "coreSize", value = "30"),
             @HystrixProperty(name = "maxQueueSize", value = "101"),

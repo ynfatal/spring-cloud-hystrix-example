@@ -15,3 +15,21 @@ spring:
 ---
 spring:
   profiles: default
+
+# Hystrix 配置
+# 它这里没有使用配置文件值注入，而是采用另一种方式来取值。（所以下面的配置会报黄）
+# 具体源码可以参考：com.netflix.hystrix.HystrixCommandProperties.getProperty(java.lang.String, com.netflix.hystrix.HystrixCommandKey, java.lang.String, java.lang.Integer, java.lang.Integer)
+hystrix:
+  command:
+    # 全局配置
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2200
+    # 局部配置（方法级别）
+    hello:  # 对应 HystrixCommandKey，默认方法名。它在这里初始化的 com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect.CommandMetaHolderFactory // line262 method.getName()
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1800
