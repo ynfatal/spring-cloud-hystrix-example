@@ -1,0 +1,20 @@
+# Spring Cloud CircuitBreak 是可以独立存在的，只需要引入 spring-cloud-starter-netflix-hystrix 即可使用
+# 并不需要注册到注册中心，也不需要使用 @EnableHystrix 来开启断路器功能，直接拿来用即可。
+spring:
+  profiles:
+    active: default
+
+---
+spring:
+  profiles: circuitbreaker_generic_configuration
+
+---
+spring:
+  profiles: circuitbreaker_specific_configuration
+
+---
+# 测试 generic 和 specific 的优先级，结果：specific 优先级高于 generic
+# 优先级实现方式看 org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerFactory.create 方法实现中的 line52 调用的
+# java.util.concurrent.ConcurrentHashMap.computeIfAbsent 方法，大致意思是如果指定的 key 不存在，就使用 defaultConfiguration 行为。
+spring:
+  profiles: default
