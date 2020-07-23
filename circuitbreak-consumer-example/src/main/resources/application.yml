@@ -2,8 +2,8 @@
 # 并不需要注册到注册中心，也不需要使用 @EnableHystrix 来开启断路器功能，直接拿来用即可。
 spring:
   profiles:
-    active: circuitbreaker_global_configuration
+    active: circuitbreaker_generic_configuration
 
 ---
 spring:
-  profiles: circuitbreaker_global_configuration
+  profiles: circuitbreaker_generic_configuration
