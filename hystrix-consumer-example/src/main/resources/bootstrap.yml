@@ -1,20 +1,6 @@
 spring:
   application:
     name: hystrix-consumer-example
-  profiles:
-    active: default
-
----
-spring:
-  profiles: global_configuration
-
----
-spring:
-  profiles: specific_configuration
-
----
-spring:
-  profiles: default
 
 # Hystrix 配置
 # 它这里没有使用配置文件值注入，而是采用另一种方式（HystrixDynamicProperty）来取值，所以下面的配置会报黄。

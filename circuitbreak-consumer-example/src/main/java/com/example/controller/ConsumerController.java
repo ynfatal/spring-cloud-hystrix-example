@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 参考链接：https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo
  * @author Fatal
  * @date 2020/7/23 0023 21:46
  */
