@@ -13,11 +13,12 @@ import org.springframework.context.annotation.Profile;
 /**
  * CircuitBreaker 通用配置
  * 局限于使用 org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerFactory#create(java.lang.String) 方法创建的断路器
+ * 可以通过 debug 这个 create 方法来查看配置是否生效
  * @author Fatal
  * @date 2020/7/23 0023 22:00
  */
 @Configuration(proxyBeanMethods = false)
-@Profile(value = "circuitbreaker_generic_configuration")
+@Profile(value = {"circuitbreaker_generic_configuration", "default"})
 public class CircuitBreakerGenericConfiguration {
 
     /**
@@ -27,7 +28,7 @@ public class CircuitBreakerGenericConfiguration {
      * @return
      */
     @Bean
-    public Customizer<HystrixCircuitBreakerFactory> customizer() {
+    public Customizer<HystrixCircuitBreakerFactory> genericCustomizer() {
         return factory -> factory.configureDefault(id -> HystrixCommand.Setter
             .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
             .andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(2000)));
