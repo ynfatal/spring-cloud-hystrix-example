@@ -21,13 +21,13 @@ spring:
 # 具体源码可以参考：com.netflix.hystrix.HystrixCommandProperties.getProperty(java.lang.String, com.netflix.hystrix.HystrixCommandKey, java.lang.String, java.lang.Integer, java.lang.Integer)
 hystrix:
   command:
-    # 全局配置
+    # HystrixCommand 全局配置
     default:
       execution:
         isolation:
           thread:
             timeoutInMilliseconds: 2200
-    # 局部配置（方法级别）
+    # HystrixCommand 局部配置（方法级别）
     hello:  # 对应 HystrixCommandKey，默认方法名。它在这里初始化的 com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect.CommandMetaHolderFactory // line262 method.getName()
       execution:
         isolation:

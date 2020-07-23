@@ -29,8 +29,7 @@ public class HystrixGlobalConfiguration {
     public Customizer<HystrixCircuitBreakerFactory> defaultConfig() {
         return factory -> factory.configureDefault(id -> HystrixCommand.Setter
             .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
-            .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
-                .withExecutionTimeoutInMilliseconds(500)));
+            .andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(500)));
     }
 
 }

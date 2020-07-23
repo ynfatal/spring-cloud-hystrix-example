@@ -25,7 +25,7 @@ public class HelloServiceImpl implements IHelloService {
     @HystrixCommand(fallbackMethod = "helloFallback")
     public String hello() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(800);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
