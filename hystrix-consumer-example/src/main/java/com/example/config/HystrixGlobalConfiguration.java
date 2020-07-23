@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 
 /**
  * HystrixCircuitBreaker 全局配置
+ * @implNote 可以参考官方 Demo：https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo
  * @author Fatal
  * @date 2020/7/14 8:47
  */
@@ -29,7 +30,7 @@ public class HystrixGlobalConfiguration {
         return factory -> factory.configureDefault(id -> HystrixCommand.Setter
             .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
             .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
-                .withExecutionTimeoutInMilliseconds(4000)));
+                .withExecutionTimeoutInMilliseconds(500)));
     }
 
 }
