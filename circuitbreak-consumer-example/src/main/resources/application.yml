@@ -1,0 +1,9 @@
+# Spring Cloud CircuitBreak 是可以独立存在的，只需要引入 spring-cloud-starter-netflix-hystrix 即可使用
+# 并不需要注册到注册中心，也不需要使用 @EnableHystrix 来开启断路器功能，直接拿来用即可。
+spring:
+  profiles:
+    active: circuitbreaker_global_configuration
+
+---
+spring:
+  profiles: circuitbreaker_global_configuration
