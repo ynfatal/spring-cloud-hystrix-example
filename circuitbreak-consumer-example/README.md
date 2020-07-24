@@ -13,10 +13,15 @@ Demo hystrix-consumer-example 用的是 Hystrix 自带的，Demo circuitbreak-co
 hystrix-consumer-example 的 CustomConfigurationHelloServiceImpl 上有相关描述了。
 
 circuitbreak-consumer-example 的话如下：
+> org.springframework.cloud.client.circuitbreaker.Customizer，它是一个函数式接口，本身也可以封装行为。
 
-首先是 CircuitBreakerGenericConfiguration 初始化了一个带行为（configureDefault）的 Bean 或者 
-CircuitBreakerSpecificConfiguration 初始化一个带行为（configure）的 Bean。这里的 Bean 是 
-org.springframework.cloud.client.circuitbreaker.Customizer 类型的 Bean，两个行为里边都定义了配置数据。
+首先是 CircuitBreakerGenericConfiguration 初始化了一个 的 Customizer Bean，它的 configureDefault 方法的作用就是初始化一个行为（带配置数据，如：超时2000），
+就像初始化（set）一个属性那样，给 HystrixCircuitBreakerFactory 初始化一个 defaultConfiguration 行为。Customizer 行为实现为在这里是调用 configureDefault 方法。
+
+**或者** 
+
+CircuitBreakerSpecificConfiguration 初始化一个 的 Customizer Bean。它的 configure 方法的作用是通过循环执行行为（带配置数据，如：超时2000）的方式将配置数据初始化到 
+HystrixCircuitBreakerFactory 的 configurations 中。Customizer 行为实现为在这里是调用 configure 方法。
 
 接着 HystrixCircuitBreakerAutoConfiguration 里边也初始化一个 HystrixCircuitBreakerFactory Bean，这个 Bean 会将上面的行为，
 通过遍历的方式封装到 HystrixCircuitBreakerFactory 中。 
