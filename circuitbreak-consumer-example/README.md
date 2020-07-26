@@ -4,7 +4,7 @@
 Hystrix 自带有 HystrixCircuitBreaker -> com.netflix.hystrix.HystrixCircuitBreaker，它是一个接口。
 
 Spring Cloud Hystrix 也有属于自己的 HystrixCircuitBreaker -> org.springframework.cloud.netflix.hystrix.HystrixCircuitBreaker，
-它是 org.springframework.cloud.client.circuitbreaker.CircuitBreaker 的实现类。
+它是 org.springframework.cloud.client.circuitbreaker.CircuitBreaker （注意：它不属于 Hystrix 依赖的内容）的实现类。
 
 两者底层都是使用 com.netflix.hystrix.HystrixCommand.Setter 来封装配置数据。
 
